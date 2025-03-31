@@ -1,4 +1,4 @@
-/* General Styles */
+/* Reset and General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,78 +7,114 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #f4f7f9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    margin: 0;
 }
 
 #game {
     background-color: #ffffff;
+    width: 100%;
+    max-width: 1100px;
     padding: 30px;
-    width: 80%;
-    max-width: 900px;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
     overflow: hidden;
-    animation: fadeIn 1s ease-out;
 }
 
-/* Navigation Tabs */
+/* Header Section */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Tabs (Navigation) */
 #tabs {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .tab {
     background-color: #007bff;
     color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
     font-size: 18px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .tab:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 /* Section Styles */
 .section {
     display: none;
     margin-bottom: 20px;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .section.active {
     display: block;
+    opacity: 1;
 }
 
-/* Button Styles */
-.button-group {
+.content {
+    text-align: center;
+}
+
+button.action-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
 }
 
-button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
+button.action-btn:hover {
     background-color: #218838;
+    transform: scale(1.05);
 }
 
-/* Animation for Page */
+/* Guest List */
+#guestList {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Debug Console */
+#debugConsole {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    font-size: 14px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
