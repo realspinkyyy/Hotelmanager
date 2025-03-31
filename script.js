@@ -1,100 +1,83 @@
 let balance = 10000;
-let roomPrice = 100;
+let roomCount = 1;
 let staffCount = 0;
-let hotelLevel = 1;
-let roomCount = 1; // Start with 1 room (motel)
 
-function logToConsole(message) {
-    const consoleDiv = document.getElementById("debugConsole");
-    const newLog = document.createElement("div");
-    newLog.textContent = message;
-    consoleDiv.appendChild(newLog);
+function showSection(section) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(s => s.classList.remove('active'));
+
+    // Show the clicked section
+    document.getElementById(`${section}Section`).classList.add('active');
 }
 
-function hireStaff() {
-    if (balance >= 500) {
-        staffCount++;
-        balance -= 500;
-        document.getElementById("staffCount").innerText = staffCount;
-        logToConsole("Staff hired. Total staff: " + staffCount);
-        updateBalance();
-    } else {
-        alert("Not enough money to hire staff!");
-        logToConsole("Attempted to hire staff but not enough balance.");
-    }
-}
-
-function addGuest() {
-    let guest = {
-        satisfaction: Math.floor(Math.random() * 100),
-        budget: Math.floor(Math.random() * 500) + 100,
-    };
-
-    let guestDiv = document.createElement("div");
-    guestDiv.innerHTML = `Guest: $${guest.budget} | Satisfaction: ${guest.satisfaction}%`;
-    document.getElementById("guestList").appendChild(guestDiv);
-
-    setTimeout(() => {
-        if (guest.budget >= roomPrice) {
-            balance += roomPrice;
-            guest.satisfaction += Math.floor(Math.random() * 20);
-            logToConsole("Guest checked in. Balance updated.");
-        } else {
-            guest.satisfaction -= 10;  // Guest is unhappy with pricing
-            logToConsole("Guest could not afford the room.");
-        }
-        guestDiv.innerHTML = `Guest: $${guest.budget} | Satisfaction: ${guest.satisfaction}%`;
-        updateBalance();
-    }, 3000);
-}
-
-function updatePrices() {
-    roomPrice = document.getElementById("roomPrice").value;
-    logToConsole(`Room price updated to $${roomPrice}`);
-}
-
-function upgradeHotel() {
-    if (balance >= 2000) {
-        hotelLevel++;
-        balance -= 2000;
-        document.getElementById("hotelLevel").innerText = `${hotelLevel} Star`;
-        logToConsole(`Hotel upgraded to ${hotelLevel} stars.`);
-        updateBalance();
-    } else {
-        alert("Not enough money to upgrade the hotel!");
-        logToConsole("Attempted to upgrade hotel but not enough balance.");
-    }
-}
-
+// Hotel Management
 function expandHotel() {
     if (balance >= 1000) {
         balance -= 1000;
-        logToConsole("Hotel expanded. Balance reduced.");
-        updateBalance();
+        updateUI();
+        logToConsole("Hotel expanded!");
     } else {
-        alert("Not enough money to expand hotel.");
-        logToConsole("Attempted to expand hotel but not enough balance.");
+        logToConsole("Not enough money to expand hotel!");
     }
 }
 
 function buyRoom() {
     if (balance >= 500) {
-        roomCount++;
         balance -= 500;
-        document.getElementById("roomCount").innerText = roomCount;
-        logToConsole("Room bought. Total rooms: " + roomCount);
-        updateBalance();
+        roomCount += 1;
+        updateUI();
+        logToConsole("Room bought!");
     } else {
-        alert("Not enough money to buy a room!");
-        logToConsole("Attempted to buy a room but not enough balance.");
+        logToConsole("Not enough money to buy a room!");
     }
 }
 
-function updateBalance() {
-    document.getElementById("balance").innerText = balance;
+function upgradeHotel() {
+    if (balance >= 2000) {
+        balance -= 2000;
+        updateUI();
+        logToConsole("Hotel upgraded to a higher star!");
+    } else {
+        logToConsole("Not enough money to upgrade hotel!");
+    }
 }
 
-setInterval(addGuest, 5000); // Add a guest every 5 seconds
+// Staff Management
+function hireStaff() {
+    if (balance >= 500) {
+        balance -= 500;
+        staffCount += 1;
+        updateUI();
+        logToConsole("Staff hired!");
+    } else {
+        logToConsole("Not enough money to hire staff!");
+    }
+}
 
-// Debugging: Log the initial balance and hotel level
-logToConsole("Game started with balance: $" + balance + " and hotel level: " + hotelLevel);
+// Guests Management
+function addGuest() {
+    const guestList = document.getElementById('guestList');
+    const guestDiv = document.createElement('div');
+    guestDiv.textContent = "Guest Added";
+    guestList.appendChild(guestDiv);
+    logToConsole("New guest added!");
+}
+
+// UI Update
+function updateUI() {
+    document.getElementById('balance').textContent = balance;
+    document.getElementById('roomCount').textContent = roomCount;
+    document.getElementById('staffCount').textContent = staffCount;
+}
+
+// Debugging Console
+function logToConsole(message) {
+    const debugConsole = document.getElementById('debugConsole');
+    const logMessage = document.createElement('div');
+    logMessage.textContent = message;
+    debugConsole.appendChild(logMessage);
+}
+
+// Initial Section Display
+showSection('hotel');
