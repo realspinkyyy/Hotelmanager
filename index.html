@@ -9,27 +9,38 @@
 <body>
     <div id="game">
         <h1>Hotel Manager</h1>
-        
-        <!-- Hotel Info Section -->
+
+        <!-- Navigation Tabs -->
+        <div id="tabs">
+            <button class="tab" onclick="showSection('hotel')">Hotel</button>
+            <button class="tab" onclick="showSection('staff')">Staff</button>
+            <button class="tab" onclick="showSection('guests')">Guests</button>
+        </div>
+
+        <!-- Hotel Section -->
         <div class="section" id="hotelSection">
             <h2>Hotel</h2>
             <p><strong>Balance:</strong> $<span id="balance">10000</span></p>
             <p><strong>Room Count:</strong> <span id="roomCount">1</span></p>
             <p><strong>Hotel Level:</strong> <span id="hotelLevel">1 Star</span></p>
-            <button onclick="expandHotel()">Expand Hotel ($1000)</button>
-            <button onclick="buyRoom()">Buy Room ($500)</button>
-            <button onclick="upgradeHotel()">Upgrade Hotel ($2000)</button>
+            <div class="button-group">
+                <button onclick="expandHotel()">Expand Hotel ($1000)</button>
+                <button onclick="buyRoom()">Buy Room ($500)</button>
+                <button onclick="upgradeHotel()">Upgrade Hotel ($2000)</button>
+            </div>
         </div>
 
-        <!-- Staff Info Section -->
+        <!-- Staff Section -->
         <div class="section" id="staffSection">
             <h2>Staff</h2>
             <p><strong>Staff Hired:</strong> <span id="staffCount">0</span></p>
-            <button onclick="hireStaff()">Hire Staff ($500)</button>
+            <div class="button-group">
+                <button onclick="hireStaff()">Hire Staff ($500)</button>
+            </div>
         </div>
 
-        <!-- Guest Info Section -->
-        <div class="section" id="guestSection">
+        <!-- Guests Section -->
+        <div class="section" id="guestsSection">
             <h2>Guests</h2>
             <button onclick="addGuest()">Add Guest</button>
             <div id="guestList"></div>
