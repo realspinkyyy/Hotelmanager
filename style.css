@@ -1,38 +1,101 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #game {
-    background: white;
+    background-color: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 30px;
     padding: 20px;
-    margin: 50px auto;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    background-color: #e9ecef;
+    transform: scale(1.02);
+}
+
+h1, h2 {
+    font-size: 2em;
+    color: #343a40;
 }
 
 button {
-    margin: 10px;
-    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
 }
 
-#guestList, #debugConsole {
-    margin-top: 20px;
-    text-align: left;
-    padding-left: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Debug Console */
+#debugConsole {
     max-height: 150px;
     overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    margin-top: 10px;
+    color: #495057;
+}
+
+/* Guest List */
+#guestList {
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Balance and Room Info */
+#balance {
+    font-weight: bold;
+    color: #28a745;
+}
+
+#roomCount, #hotelLevel {
+    font-weight: bold;
+    color: #007bff;
 }
 
 input[type="number"] {
     padding: 5px;
     margin-top: 10px;
     width: 70px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+section {
+    animation: fadeIn 1s ease-out;
 }
