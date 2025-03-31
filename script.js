@@ -2,7 +2,7 @@ let balance = 10000;
 let roomPrice = 100;
 let staffCount = 0;
 let hotelLevel = 1;
-let guests = [];
+let roomCount = 1; // Start with 1 room (motel)
 
 function logToConsole(message) {
     const consoleDiv = document.getElementById("debugConsole");
@@ -74,6 +74,19 @@ function expandHotel() {
     } else {
         alert("Not enough money to expand hotel.");
         logToConsole("Attempted to expand hotel but not enough balance.");
+    }
+}
+
+function buyRoom() {
+    if (balance >= 500) {
+        roomCount++;
+        balance -= 500;
+        document.getElementById("roomCount").innerText = roomCount;
+        logToConsole("Room bought. Total rooms: " + roomCount);
+        updateBalance();
+    } else {
+        alert("Not enough money to buy a room!");
+        logToConsole("Attempted to buy a room but not enough balance.");
     }
 }
 
