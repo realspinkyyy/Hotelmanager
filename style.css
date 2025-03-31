@@ -2,6 +2,8 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 #game {
@@ -25,4 +27,12 @@ button {
     padding-left: 10px;
     background-color: #f0f0f0;
     border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+input[type="number"] {
+    padding: 5px;
+    margin-top: 10px;
+    width: 70px;
 }
