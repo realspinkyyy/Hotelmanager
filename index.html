@@ -9,27 +9,37 @@
 <body>
     <div id="game">
         <h1>Hotel Manager</h1>
-        <p>Balance: $<span id="balance">10000</span></p>
-        <p>Room Price: $<input type="number" id="roomPrice" value="100"></p>
-        <button onclick="expandHotel()">Expand Hotel ($1000)</button>
-        <button onclick="hireStaff()">Hire Staff ($500)</button>
-        <button onclick="updatePrices()">Update Room Price</button>
-        <p>Staff Hired: <span id="staffCount">0</span></p>
         
-        <h2>Room Management</h2>
-        <p>Rooms: <span id="roomCount">1</span></p>
-        <button onclick="buyRoom()">Buy Room ($500)</button>
+        <!-- Hotel Info Section -->
+        <div class="section" id="hotelSection">
+            <h2>Hotel</h2>
+            <p><strong>Balance:</strong> $<span id="balance">10000</span></p>
+            <p><strong>Room Count:</strong> <span id="roomCount">1</span></p>
+            <p><strong>Hotel Level:</strong> <span id="hotelLevel">1 Star</span></p>
+            <button onclick="expandHotel()">Expand Hotel ($1000)</button>
+            <button onclick="buyRoom()">Buy Room ($500)</button>
+            <button onclick="upgradeHotel()">Upgrade Hotel ($2000)</button>
+        </div>
 
-        <h2>Guest Management</h2>
-        <button onclick="addGuest()">Add Guest</button>
-        <div id="guestList"></div>
+        <!-- Staff Info Section -->
+        <div class="section" id="staffSection">
+            <h2>Staff</h2>
+            <p><strong>Staff Hired:</strong> <span id="staffCount">0</span></p>
+            <button onclick="hireStaff()">Hire Staff ($500)</button>
+        </div>
 
-        <h2>Hotel Features</h2>
-        <p>Hotel Level: <span id="hotelLevel">1 Star</span></p>
-        <button onclick="upgradeHotel()">Upgrade Hotel (Cost: $2000)</button>
+        <!-- Guest Info Section -->
+        <div class="section" id="guestSection">
+            <h2>Guests</h2>
+            <button onclick="addGuest()">Add Guest</button>
+            <div id="guestList"></div>
+        </div>
 
-        <h2>Debug Console</h2>
-        <div id="debugConsole"></div>
+        <!-- Debug Console Section -->
+        <div class="section" id="debugSection">
+            <h2>Debug Console</h2>
+            <div id="debugConsole"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
