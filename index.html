@@ -8,48 +8,56 @@
 </head>
 <body>
     <div id="game">
-        <h1>Hotel Manager</h1>
-
-        <!-- Navigation Tabs -->
-        <div id="tabs">
-            <button class="tab" onclick="showSection('hotel')">Hotel</button>
-            <button class="tab" onclick="showSection('staff')">Staff</button>
-            <button class="tab" onclick="showSection('guests')">Guests</button>
-        </div>
+        <header>
+            <h1>Hotel Manager</h1>
+            <div id="tabs">
+                <button class="tab" onclick="showSection('hotel')">Hotel</button>
+                <button class="tab" onclick="showSection('staff')">Staff</button>
+                <button class="tab" onclick="showSection('guests')">Guests</button>
+            </div>
+        </header>
 
         <!-- Hotel Section -->
         <div class="section" id="hotelSection">
-            <h2>Hotel</h2>
-            <p><strong>Balance:</strong> $<span id="balance">10000</span></p>
-            <p><strong>Room Count:</strong> <span id="roomCount">1</span></p>
-            <p><strong>Hotel Level:</strong> <span id="hotelLevel">1 Star</span></p>
-            <div class="button-group">
-                <button onclick="expandHotel()">Expand Hotel ($1000)</button>
-                <button onclick="buyRoom()">Buy Room ($500)</button>
-                <button onclick="upgradeHotel()">Upgrade Hotel ($2000)</button>
+            <div class="content">
+                <h2>Hotel Overview</h2>
+                <p><strong>Balance:</strong> $<span id="balance">10000</span></p>
+                <p><strong>Room Count:</strong> <span id="roomCount">1</span></p>
+                <p><strong>Hotel Level:</strong> <span id="hotelLevel">1 Star</span></p>
+                <div class="button-group">
+                    <button class="action-btn" onclick="expandHotel()">Expand Hotel ($1000)</button>
+                    <button class="action-btn" onclick="buyRoom()">Buy Room ($500)</button>
+                    <button class="action-btn" onclick="upgradeHotel()">Upgrade Hotel ($2000)</button>
+                </div>
             </div>
         </div>
 
         <!-- Staff Section -->
         <div class="section" id="staffSection">
-            <h2>Staff</h2>
-            <p><strong>Staff Hired:</strong> <span id="staffCount">0</span></p>
-            <div class="button-group">
-                <button onclick="hireStaff()">Hire Staff ($500)</button>
+            <div class="content">
+                <h2>Staff Management</h2>
+                <p><strong>Staff Hired:</strong> <span id="staffCount">0</span></p>
+                <div class="button-group">
+                    <button class="action-btn" onclick="hireStaff()">Hire Staff ($500)</button>
+                </div>
             </div>
         </div>
 
         <!-- Guests Section -->
         <div class="section" id="guestsSection">
-            <h2>Guests</h2>
-            <button onclick="addGuest()">Add Guest</button>
-            <div id="guestList"></div>
+            <div class="content">
+                <h2>Guest Management</h2>
+                <button class="action-btn" onclick="addGuest()">Add Guest</button>
+                <div id="guestList"></div>
+            </div>
         </div>
 
         <!-- Debug Console Section -->
         <div class="section" id="debugSection">
-            <h2>Debug Console</h2>
-            <div id="debugConsole"></div>
+            <div class="content">
+                <h2>Debug Console</h2>
+                <div id="debugConsole"></div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
